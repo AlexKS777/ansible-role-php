@@ -11,5 +11,5 @@
     name: "{{ php_fpm_daemon }}"
     state: restarted
   when:
-    - php_enable_php_fpm
-    - php_fpm_state == 'started'
+    - php_enable_php_fpm and ansible_os_family != "Debian"
+    - php_fpm_state == 'started' and ansible_os_family != "Debian"
