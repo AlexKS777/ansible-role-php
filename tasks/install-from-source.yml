@@ -115,11 +115,11 @@
     - make install
   when: php_installed.rc != 0
 
-- name: Ensure php executable is symlinked into a standard path.
-  file:
-    src: "{{ php_source_install_path }}/bin/php"
-    dest: /usr/bin/php
-    state: link
+#- name: Ensure php executable is symlinked into a standard path.
+#  file:
+#    src: "{{ php_source_install_path }}/bin/php"
+#    dest: /usr/bin/php
+#    state: link
 
 # PHP FPM configuration.
 - name: Ensure php-fpm executable is symlinked into a standard path.
