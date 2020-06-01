@@ -137,6 +137,14 @@
   when: "'--enable-fpm' in php_source_configure_command"
   notify: restart php-fpm
 
+- name: Ensure php-fpm init script is installed (Upstart).
+  template:
+    src: fpm-init-upstart.j2
+    dest: "/etc/init/{{ php_fpm_daemon }}.conf"
+    mode: 0755
+  when: "'--enable-fpm' in php_source_configure_command"
+  notify: restart php-fpm
+
 - name: Ensure php-fpm config directory exists.
   file:
     path: "{{ php_fpm_conf_path }}"
