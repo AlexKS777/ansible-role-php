@@ -3,6 +3,6 @@ stage('testing webhook') {
     node('master') {
 
         checkout scm
-        sh 'echo SUCCESS'
+        sh 'echo SUCCESS triggered webhook'
     }
 }
